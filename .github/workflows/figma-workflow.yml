@@ -30,11 +30,8 @@ jobs:
         run: npm run build
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: 'style: Update design tokens'
           title: ${{ github.event.client_payload.commitMessage || 'Update design tokens' }}
           body: 'Design tokens have been updated via Figma and need to be reviewed.'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: 'main'
